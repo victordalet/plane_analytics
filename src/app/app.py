@@ -13,7 +13,6 @@ class App:
         try:
             return tf.keras.models.load_model(model_path)
         except Exception as e:
-            st.error(f"Error :  {e}")
             return None
 
     def render_form(self):

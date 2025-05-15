@@ -22,5 +22,7 @@ cd docker
 docker compose up -d 
 docker compose exec -it namenode bash
 hdfs dfs -mkdir -p /user/data
-hdfs dfs -put /data/flights.csv /user/data
+hdfs dfs -put data/flights.csv /user/data
+hdfs dfs -put data/airlines.csv /user/data
+hdfs dfs -put data/airports.csv /user/data
 ```
