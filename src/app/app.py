@@ -19,19 +19,15 @@ class App:
         with st.form("prediction_form"):
             start_city = st.text_input("Start City")
             end_city = st.text_input("End City")
-            start_date = st.date_input("Start Date")
-            start_time = st.time_input("Start Time")
-            end_date = st.date_input("End Date")
-            end_time = st.time_input("End Time")
             submitted = st.form_submit_button("Submit")
 
             if submitted:
                 self.make_prediction(
-                    start_city, end_city, start_date, start_time, end_date, end_time
+                    start_city, end_city
                 )
 
     def make_prediction(
-        self, start_city, end_city, start_date, start_time, end_date, end_time
+        self, start_city, end_city
     ):
         if not self.model:
             st.error("Model not loaded.")
@@ -41,9 +37,7 @@ class App:
             prediction = self.model.predict(
                 [
                     start_city,
-                    end_city,
-                    datetime.combine(start_date, start_time),
-                    datetime.combine(end_date, end_time),
+                    end_city
                 ]
             )
             st.success(f"Go to : {prediction}")
