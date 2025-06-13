@@ -7,7 +7,7 @@
 pip install -r requirements.txt
 ```
 
-## Launch app
+## Launch apps
 
 ```bash
 streamlit run src/app/app.py
