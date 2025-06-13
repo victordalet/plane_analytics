@@ -48,7 +48,7 @@ services:
     container_name: spark-jupyter
     ports:
       - 8888:8888
-      - 8501:8501
+      - 8502:8501
     volumes:
       - ./notebooks:/home/jovyan/work
     environment:
