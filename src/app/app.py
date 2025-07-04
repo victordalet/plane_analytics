@@ -4,7 +4,6 @@ from typing import Optional
 import pandas as pd
 import numpy as np
 
-
 NUMBER_BEST_TO_DISPLAY = 5
 
 
@@ -48,6 +47,7 @@ class App:
 
         try:
             airline_csv = pd.read_csv("docker/data/airlines.csv")
+            kpi_csv = pd.read_csv("analytics/kpi.csv")
 
             prediction = pd.DataFrame(
                 columns=[
@@ -61,8 +61,19 @@ class App:
             )
             for airline in airline_csv["IATA_CODE"]:
                 x_col = [start_city, end_city, airline]
+
                 for i in range(len(x_col)):
                     x_col[i] = sum([ord(c) for c in x_col[i]])
+
+                x_col += [
+                    kpi_csv[kpi_csv["AIRLINE"] == airline]["AVG_DELAY"].values[0],
+                    kpi_csv[kpi_csv["AIRLINE"] == airline]["DELAY_RATE"].values[0],
+                    kpi_csv[kpi_csv["AIRLINE"] == airline]["CANCEL_RATE"].values[0],
+                    kpi_csv[kpi_csv["AIRLINE"] == airline]["ON_TIME_RATE"].values[0],
+                    kpi_csv[kpi_csv["AIRLINE"] == airline][
+                        "AVG_CANCELS_PER_DAY"
+                    ].values[0],
+                ]
 
                 r = self.model.predict(np.array([x_col]))
 
