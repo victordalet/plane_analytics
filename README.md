@@ -37,6 +37,7 @@ hdfs dfs -put data/airports.csv /user/data
 hdfs dfs -chmod 777 /user/data/*
 ```
 
+
 ## Download csv files 
 
 - put there in docker/data folder
@@ -44,6 +45,7 @@ hdfs dfs -chmod 777 /user/data/*
 -> https://drive.google.com/file/d/1_8MdG9BOQU-bD-piwHkzz8BbW6TGxVZr/view?usp=sharing
 -> https://drive.google.com/file/d/1fJotyuz27E6faTTLuEKJro6mCoQFj0k3/view?usp=sharing
 -> https://drive.google.com/file/d/12PD0mk10A0a37cWrGoaQUH-qteXpvnb5/view?usp=sharing
+
 
 ---
 
